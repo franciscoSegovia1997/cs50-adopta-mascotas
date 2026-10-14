@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+
+  <h2 class="mb-4">
+    <i class="fa-solid fa-paw me-2"></i>
+    {% if tipo_seleccionado %}
+      Mascotas de tipo: {{ tipo_seleccionado.nombre }}
+    {% else %}
+      Mascotas Disponibles
+    {% endif %}
+  </h2>
+
+  <div class="row g-4">
+    {% for mascota in mascotas %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm h-100 border-0">
+          <img src="{{ url_for('static', filename='uploads/' ~ mascota.foto) }}" class="card-img-top" alt="{{ mascota.nombre }}">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ mascota.nombre }}</h5>
+            <p class="card-text text-muted">{{ (mascota.descripcion or '')|truncate(90, True, '…') }}</p>
+            <p class="small text-secondary"><i class="fa-solid fa-cake-candles me-1"></i>{{ mascota.edad }} años</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="{{ url_for('detalle_mascota', id_mascota=mascota.id) }}" class="btn btn-sm btn-primary w-100">
+              <i class="fa-solid fa-eye me-1"></i> Ver Detalle
+            </a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <p class="text-muted">No hay mascotas registradas.</p>
+    {% endfor %}
+  </div>
+
+{% endblock %}

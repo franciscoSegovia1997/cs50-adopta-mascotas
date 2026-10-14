@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+  <div class="card shadow mt-4">
+    <div class="card-body">
+      <h3 class="text-center mb-4">
+        <i class="fa-solid fa-user-plus"></i> Regístrate
+      </h3>
+
+      <form method="post" action="{{ url_for('register') }}">
+        <div class="mb-3">
+          <label class="form-label">Nombre de usuario</label>
+          <input autocomplete="off" autofocus class="form-control" name="username" type="text" placeholder="Tu usuario">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Correo electrónico</label>
+          <input autocomplete="off" class="form-control" name="email" type="email" placeholder="tucorreo@example.com">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input class="form-control" name="password" type="password" placeholder="Tu contraseña">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Confirmar contraseña</label>
+          <input class="form-control" name="confirmation" type="password" placeholder="Repite la contraseña">
+        </div>
+        <button class="btn btn-success w-100" type="submit">
+          <i class="fa-solid fa-circle-check me-1"></i> Crear cuenta
+        </button>
+      </form>
+
+      <div class="text-center mt-3">
+        ¿Ya tienes cuenta? <a href="{{ url_for('login') }}" class="text-primary">Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

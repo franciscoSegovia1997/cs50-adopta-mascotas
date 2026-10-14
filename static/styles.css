@@ -1,0 +1,12 @@
+body {
+    min-height: 100vh;
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+}
+
+.navbar-brand i {
+    color: #ffd43b;
+}

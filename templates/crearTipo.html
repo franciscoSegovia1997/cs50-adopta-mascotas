@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block contenido %}
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+      <h3 class="mb-4 text-primary">
+        <i class="fa-solid fa-plus me-2"></i>Crear Nuevo Tipo de Mascota
+      </h3>
+
+      <form method="POST" action="{{ url_for('crear_tipo') }}" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+          {{ form.nombre.label(class="form-label") }}
+          {{ form.nombre(class="form-control", placeholder="Ej. Perro") }}
+          {% for error in form.nombre.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="mb-3">
+          {{ form.descripcion.label(class="form-label") }}
+          {{ form.descripcion(class="form-control", rows="3", placeholder="Ej. Mascotas caninas de todas las razas") }}
+          {% for error in form.descripcion.errors %}
+            <div class="alert alert-danger mt-1">{{ error }}</div>
+          {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-check me-1"></i> Guardar
+        </button>
+        <a href="{{ url_for('home') }}" class="btn btn-secondary">
+          <i class="fa-solid fa-arrow-left me-1"></i> Cancelar
+        </a>
+      </form>
+    </div>
+  </div>
+{% endblock %}
