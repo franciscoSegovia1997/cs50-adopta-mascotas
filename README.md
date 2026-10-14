@@ -105,7 +105,5 @@ Then open <http://127.0.0.1:5000>. You can also register a new account. After si
 
 This is a **local learning project**, not a production deployment. The database, uploaded photos, and filesystem session data are local runtime files and are excluded from Git. The application creates the database and upload directory when needed; run `python seed.py` to create the demo account and pet types.
 
-The demo credentials are public and intended only for local use. The development server runs with Flask debug mode enabled, and the application includes a development fallback for `SECRET_KEY`; set a unique local secret as shown above. Do not deploy this configuration or reuse the demo credentials in a public service.
-
 The sample records in the existing local database are fictional. A fresh clone creates its own database through the setup steps above.
 
